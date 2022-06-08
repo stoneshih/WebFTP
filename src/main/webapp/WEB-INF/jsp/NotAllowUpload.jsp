@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <div>
 
-You are not allowed to upload files here.
+你不能在這裡上傳檔案。
 
 </div>

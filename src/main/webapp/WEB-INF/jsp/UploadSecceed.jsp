@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <div>
 
-<p> 檔案上傳成功。(Files upload succeeds.)</p>
+<p> 檔案上傳成功。</p>
 
 </div>

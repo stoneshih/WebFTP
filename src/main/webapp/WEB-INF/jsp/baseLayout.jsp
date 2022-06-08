@@ -16,7 +16,7 @@
             <title><tiles:getAsString name="title" ignore="true" /></title>
     </head>
     <body>
-        <table border="1" cellpadding="2" cellspacing="2" align="center" width="1000">
+        <table border="1" cellpadding="2" cellspacing="2" align="center" width="1600">
             <tr>
                 <td height="20%" colspan="2">
                     <tiles:insert attribute="header" ignore="true" />
@@ -26,7 +26,7 @@
                 <td width="20%" height="250">
                     <tiles:insert attribute="menu" />
                 </td>
-                <td>
+                <td style="vertical-align:top;">
                     <tiles:insert attribute="body" />
                 </td>
             </tr>

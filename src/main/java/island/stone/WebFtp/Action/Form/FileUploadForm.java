@@ -22,14 +22,14 @@ public class FileUploadForm extends ActionForm{
 //		this.file = file;
 //	}
 
-	String	toIsland;
+	String	toCompany;
 
-	public String getToIsland() {
-		return toIsland;
+	public String getToCompany() {
+		return toCompany;
 	}
 
-	public void setToIsland(String toIsland) {
-		this.toIsland = toIsland;
+	public void setToCompany(String toCompany) {
+		this.toCompany = toCompany;
 	}
 
 	protected ArrayList<FormFile> uploaded = new ArrayList<>();

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <div>
-You has been logged out!
+已經logout囉！
 </div>
 <%
 session.setAttribute("login", false);

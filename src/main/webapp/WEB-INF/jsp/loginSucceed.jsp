@@ -3,5 +3,5 @@
 <!DOCTYPE html>
 
 <div>
-Login succeeded! <br/>
+Login 成功！<br/>
 </div>

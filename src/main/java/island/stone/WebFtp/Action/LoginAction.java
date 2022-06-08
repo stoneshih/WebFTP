@@ -14,7 +14,11 @@ import org.apache.struts.action.ActionMapping;
 
 import island.stone.WebFtp.Action.Form.LoginForm;
 
+
 public class LoginAction extends Action {
+
+	private String	company = "micro-ip";
+	
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
@@ -39,18 +43,21 @@ public class LoginAction extends Action {
  *  Note: "esunIsland" is the counterpart of client "esun"
  *
  */
+		request.getSession().setAttribute("company", company );
         if ( up != null && up.equals(p)) {
-        	if ( u.endsWith("Island") && ! u.equals("Island")) { // Is-land Account
+        	if ( u.endsWith(company) && ! u.equals(company)) { // company Account
         		request.getSession().setAttribute("login", true);
-        		String	clientUser = u.replaceAll("Island", "");
-        		request.getSession().setAttribute("client", clientUser );
-        		dir 		= realm.getProperty(clientUser+".directory");
+        		String	clientName = u.replaceAll("_"+company, "");
+        		request.getSession().setAttribute("clientName", clientName );
+        		dir 		= realm.getProperty(clientName+".directory");
+        		request.getSession().setAttribute("client", "no");
         		request.getSession().setAttribute("dir", dir );
         		request.getSession().setAttribute("user", u );
-        		request.getSession().setAttribute("proj",  clientUser );
+        		request.getSession().setAttribute("proj",  clientName );
         	} else if ( client.equals("yes")) { // Client Account
         		request.getSession().setAttribute("login", true);
         		request.getSession().setAttribute("client", "yes");
+        		request.getSession().setAttribute("clientName", u);
         		dir 		= realm.getProperty(u+".directory");
         		request.getSession().setAttribute("dir", dir );
         		request.getSession().setAttribute("user", u );

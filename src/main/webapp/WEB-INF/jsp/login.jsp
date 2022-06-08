@@ -4,9 +4,9 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <div>
 
-	<p>若有疑問，請聯絡客服經理或工程師.</p>
-	<p>Please contact our Service manager or engineer to use this
-		interface.</p>
+		<p>若有疑問，請聯絡工程師.</p>
+	<p>施東榮 電話：03-5795588#390 或 手機：0909369771</p>
+
 	<div>
 
 		<%--     <html:form action="/Login" focus="userName" > --%>

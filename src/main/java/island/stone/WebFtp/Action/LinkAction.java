@@ -30,12 +30,12 @@ public class LinkAction extends DispatchAction {
 
 	public ActionForward UploadFile(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String toIsland	=	request.getParameter("toIsland");
+		String toCompany	=	request.getParameter("toCompany");
 		String client	=	(String) request.getSession().getAttribute("client");
 		if (request.getSession().getAttribute("login") == (Boolean) true) {
-			if ( toIsland.equals("no") && ! client.equals("yes")) {
+			if ( toCompany.equals("no") && ! client.equals("yes")) {
 				return mapping.findForward("UploadFile");
-			} else if ( toIsland.equals("yes") && client.equals("yes")) {
+			} else if ( toCompany.equals("yes") && client.equals("yes")) {
 				return mapping.findForward("UploadFile");
 			} else {
 				return mapping.findForward("NotAllowUpload");

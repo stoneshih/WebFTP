@@ -3,6 +3,6 @@
 <!DOCTYPE html>
 
 <div>
-Login Fail! <br/>
-Want to login again?
+Login 失敗! <br/>
+再點選"登入(Login)"試試看？
 </div>
