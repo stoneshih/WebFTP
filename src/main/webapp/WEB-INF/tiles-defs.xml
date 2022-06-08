@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout"
+		path="/WEB-INF/jsp//baseLayout.jsp">
+		<put name="title" value="Simple Web FTP" />
+		<put name="header" value="/WEB-INF/jsp//header.jsp" />
+		<put name="menu" value="/WEB-INF/jsp//menu.jsp" />
+		<put name="body" value="/WEB-INF/jsp//home.jsp" />
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+	</definition>
+
+	<definition name="Login" extends="baseLayout">
+		<put name="title" value="Please Login" />
+		<put name="header" value="/WEB-INF/jsp//header-nologin.jsp" />
+
+		<put name="body" value="/WEB-INF/jsp/login.jsp" />
+		<put name="menu" value="/WEB-INF/jsp/blank.jsp" />
+	</definition>
+	<definition name="LoginSucceed" extends="baseLayout">
+		<put name="title" value="Please Login" />
+		<put name="header" value="/WEB-INF/jsp//header-nologin.jsp" />
+		<put name="body" value="/WEB-INF/jsp/loginSucceed.jsp" />
+		<put name="menu" value="/WEB-INF/jsp/blank.jsp" />
+	</definition>
+	<definition name="LoginFail" extends="baseLayout">
+		<put name="title" value="Please Login" />
+		<put name="header" value="/WEB-INF/jsp//header-nologin.jsp" />
+		<put name="body" value="/WEB-INF/jsp/loginFail.jsp" />
+		<put name="menu" value="/WEB-INF/jsp/blank.jsp" />
+	</definition>
+
+
+	<definition name="Logout" extends="baseLayout">
+		<put name="title" value="You has been logged out" />
+		<put name="header" value="/WEB-INF/jsp//header-nologin.jsp" />
+		<put name="menu" value="/WEB-INF/jsp/blank.jsp" />
+		<put name="body" value="/WEB-INF/jsp/logout.jsp" />
+	</definition>
+
+
+
+	<definition name="Home" extends="baseLayout">
+		<put name="title" value="Home" />
+		<put name="body" value="/WEB-INF/jsp/home.jsp" />
+	</definition>
+
+	<definition name="ListFile" extends="baseLayout">
+		<put name="title" value="List File(s)" />
+		<put name="body" value="/WEB-INF/jsp/ListFile.jsp" />
+	</definition>
+
+	<definition name="ListFileToDownload" extends="baseLayout">
+		<put name="title" value="List File(s) to Download" />
+		<put name="body" value="/WEB-INF/jsp/ListFileToDownload.jsp" />
+	</definition>
+
+
+	<definition name="UploadFile" extends="baseLayout">
+		<put name="title" value="Upload File" />
+		<put name="body" value="/WEB-INF/jsp//UploadFile.jsp" />
+	</definition>
+
+	<definition name="Note" extends="baseLayout">
+		<put name="title" value="Note Only" />
+		<put name="body" value="/WEB-INF/jsp/note.jsp" />
+	</definition>
+
+	<definition name="UploadSecceed" extends="baseLayout">
+		<put name="title" value="Upload Succeeds" />
+		<put name="body" value="/WEB-INF/jsp/UploadSecceed.jsp" />
+	</definition>
+	<definition name="NotAllowUpload" extends="baseLayout">
+		<put name="body" value="/WEB-INF/jsp/NotAllowUpload.jsp" />
+	</definition>
+
+</tiles-definitions>

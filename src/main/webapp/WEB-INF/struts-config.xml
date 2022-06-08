@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+
+
+	<form-beans>
+		<form-bean name="loginForm"
+			type="island.stone.WebFtp.Action.Form.LoginForm" />
+		<form-bean name="fileUploadForm"
+			type="island.stone.WebFtp.Action.Form.FileUploadForm" />
+	</form-beans>
+
+
+	<global-exceptions>
+
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="welcome" path="/Welcome.do" />
+		<forward name="login" path="/Link.do?method=Login" />
+	</global-forwards>
+
+
+	<action-mappings>
+
+		<action name="loginForm" path="/Login"
+			type="island.stone.WebFtp.Action.LoginAction" scope="request"
+			input="/WEB-INF/jsp/login.jsp">
+
+			<forward name="failure" path="LoginFail" redirect="true" />
+			<forward name="success" path="Home" redirect="true" />
+
+		</action>
+
+
+		<action path="/Link" parameter="method"
+			type="island.stone.WebFtp.Action.LinkAction" scope="session">
+			<forward name="Login" path="Login" />
+			<forward name="Home" path="Home" />
+			<forward name="ListFile" path="ListFile" />
+			<forward name="ListFileToDownload" path="ListFileToDownload" />
+			<forward name="UploadFile" path="UploadFile" />
+			<forward name="NotAllowUpload" path="NotAllowUpload" />
+			<forward name="Note" path="Note" />
+			<forward name="Logout" path="Logout" />
+		</action>
+
+		<action path="/RecvFileAction"
+			type="island.stone.WebFtp.Action.RecvFileAction"
+			name="fileUploadForm" validate="true"
+			input="/WEB-INF/jsp/UploadFile.jsp">
+
+			<forward name="failure" path="LoginFail" redirect="true" />
+			<forward name="failure" path="UploadFail" />
+			<forward name="success" path="UploadSecceed" redirect="true" />
+
+		</action>
+
+		<action
+			path="/DownloadFile"
+			type="island.stone.WebFtp.Action.DownloadFileAction"
+			>
+		</action>
+	</action-mappings>
+
+	<controller
+		processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<message-resources parameter="MessageResources" />
+
+	<plug-in
+		className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+</struts-config>
+
