@@ -25,7 +25,7 @@ public class RecvFileAction extends Action {
 	            HttpServletRequest request, HttpServletResponse response)
 	            throws Exception {
 
-		System.out.println("XXXXXX");
+//		System.out.println("XXXXXX");
 
 		FileUploadForm fileUploadForm = (FileUploadForm) form;
 
@@ -48,10 +48,10 @@ public class RecvFileAction extends Action {
 
 		for (int i = 0; i < files.size(); i++) {
 			FormFile file = files.get(i);
-			System.out.println(i);
-			System.out.println(file.getFileName());
-			System.out.println(file.getContentType());
-			System.out.println(file.getFileSize());
+//			System.out.println(i);
+//			System.out.println(file.getFileName());
+//			System.out.println(file.getContentType());
+//			System.out.println(file.getFileSize());
 			File newFile = new File(filePath, file.getFileName());
 			if (newFile.exists()) {
 				DateTimeFormatter DTF = DateTimeFormatter.ofPattern("MM-dd_HHmmss");
