@@ -1,4 +1,4 @@
-package island.stone.WebFtp.Action;
+package company.stone.WebFtp.Action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

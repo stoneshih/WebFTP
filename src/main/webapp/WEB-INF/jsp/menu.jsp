@@ -17,40 +17,48 @@ if (session.getAttribute("login") == (Boolean) true) {
 }
 %>
 <div style="margin: 10px; width: 200px; border: 3px #fefefe solid;">
-	<a href="Link.do?method=Home" style="font-size: 1.3em;">首頁<br />
-	</a><br />
-	<br />
-	
-		<p style="font-size: 1.3em;">
-		傳檔方向：<br/> 從
-			<%=(String) session.getAttribute("company")%> 到
-			<%=(String) session.getAttribute("proj")%>:
-		</p>	<div style="border: 3px #fefefe groove; padding: 5px;">
 
-		<a href="Link.do?method=ListFile&toCompany=no">已經上傳的檔案<br />
+	<a href="Link.do?method=Home" style="font-size: 1.5em;">首頁<br />
+	</a> </br>
+	<fieldset
+		style="font-size: 1em; width: 300px; border: 3px #fefefe groove; padding: 10px;">
+		<legend>
+			從<%=(String) session.getAttribute("company")%>
+			傳給
+			<%=(String) session.getAttribute("proj")%>
+			的檔案
+		</legend>
+		<span style="font-size:1.5em;">
+		<a href="Link.do?method=ListFile&toCompany=no">檢視已經上傳檔案<br />
 		</a><br />
 		<%=dLinkPre_1%>
 		檔案上傳<br />
-		<%=dLinkSuf_1%><br />
-		<a href="Link.do?method=ListFileToDownload&toCompany=no">檔案下載<br />
+		<%=dLinkSuf_1%><br /> <a
+			href="Link.do?method=ListFileToDownload&toCompany=no">檔案下載<br />
 		</a>
-	</div>
+		</span>
+	</fieldset>
 	<br />
 
-	<p style="font-size: 1.3em;">
-		傳檔方向： <br/>從<%=(String) session.getAttribute("proj")%>
-		到 <%=(String) session.getAttribute("company")%>:
-	</p>
-	<div style="border: 3px #fefefe groove; padding: 5px;">
-		<a href="Link.do?method=ListFile&toCompany=yes">已經上傳的檔案<br />
+	<fieldset
+		style="font-size: 1em; width: 300px; border: 3px #fefefe groove; padding: 10px;">
+		<legend>
+			從<%=(String) session.getAttribute("proj")%>
+			傳給
+			<%=(String) session.getAttribute("company")%>
+			的檔案
+		</legend>
+		<span style="font-size:1.5em;">
+		<a href="Link.do?method=ListFile&toCompany=yes">檢視已經上傳檔案<br />
 		</a><br />
 		<%=dLinkPre_2%>
 		檔案上傳<br />
-		<%=dLinkSuf_2%><br />
-		<a href="Link.do?method=ListFileToDownload&toCompany=yes">檔案下載<br />
+		<%=dLinkSuf_2%><br /> <a
+			href="Link.do?method=ListFileToDownload&toCompany=yes">檔案下載<br />
 		</a>
-	</div>
-	<br /> <a href="Link.do?method=Logout&"style="font-size: 1.3em;">登出<br />
+		</span>
+	</fieldset>
+	<br /> <a href="Link.do?method=Logout&" style="font-size: 1.5em;">登出<br />
 	</a>
 </div>
 

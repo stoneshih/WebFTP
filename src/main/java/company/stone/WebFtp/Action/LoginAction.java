@@ -1,4 +1,4 @@
-package island.stone.WebFtp.Action;
+package company.stone.WebFtp.Action;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import island.stone.WebFtp.Action.Form.LoginForm;
+import company.stone.WebFtp.Action.Form.LoginForm;
 
 
 public class LoginAction extends Action {

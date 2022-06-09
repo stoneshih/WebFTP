@@ -1,4 +1,4 @@
-package island.stone.WebFtp.Action.Form;
+package company.stone.WebFtp.Action.Form;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package island.stone.WebFtp.Action;
+package company.stone.WebFtp.Action;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,7 +17,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
-import island.stone.WebFtp.Action.Form.FileUploadForm;
+import company.stone.WebFtp.Action.Form.FileUploadForm;
 
 public class RecvFileAction extends Action {
 	@Override
