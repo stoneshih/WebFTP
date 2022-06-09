@@ -17,6 +17,16 @@
 <web-app>
 	<display-name>Struts Blank Application</display-name>
 
+	<!-- Change the Character Encoding -->
+	<filter>
+		<filter-name>CharacterSetFilter</filter-name>
+		<filter-class>company.stone.CharacterSetFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterSetFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<!-- Standard Action Servlet Configuration -->
 	<servlet>
 		<servlet-name>action</servlet-name>
@@ -39,15 +49,7 @@
 		<session-timeout>10</session-timeout>
 	</session-config>
 
-	<!-- Change the Character Encoding -->
-	<filter>
-		<filter-name>CharacterSetFilter</filter-name>
-		<filter-class>company.stone.CharacterSetFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>CharacterSetFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+
 	
 	<!-- The Usual Welcome File List -->
 	<welcome-file-list>
