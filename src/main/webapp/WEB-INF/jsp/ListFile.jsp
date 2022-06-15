@@ -47,7 +47,7 @@ td, th {
 			try {
 				final JspWriter out1 = out;
 
-				try (Stream<Path> entries = Files.walk(path, 1)) {
+				try (Stream<Path> entries = Files.walk(path)) {
 					entries.forEach(new Consumer<Path>() {
 				@Override
 				public void accept(Path p) {

@@ -38,7 +38,7 @@
 
 
 		<action path="/Link" parameter="method"
-			type="company.stone.WebFtp.Action.LinkAction" scope="session">
+			type="company.stone.WebFtp.Action.LinkAction" scope="request">
 			<forward name="Login" path="Login" />
 			<forward name="Home" path="Home" />
 			<forward name="ListFile" path="ListFile" />
@@ -52,7 +52,8 @@
 		<action path="/RecvFileAction"
 			type="company.stone.WebFtp.Action.RecvFileAction"
 			name="fileUploadForm" validate="true"
-			input="/WEB-INF/jsp/UploadFile.jsp">
+			input="/WEB-INF/jsp/UploadFile.jsp"
+			scope="request">
 
 			<forward name="failure" path="LoginFail" redirect="true" />
 			<forward name="failure" path="UploadFail" />

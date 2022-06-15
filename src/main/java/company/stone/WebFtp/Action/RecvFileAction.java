@@ -25,8 +25,6 @@ public class RecvFileAction extends Action {
 	            HttpServletRequest request, HttpServletResponse response)
 	            throws Exception {
 
-//		System.out.println("XXXXXX");
-
 		FileUploadForm fileUploadForm = (FileUploadForm) form;
 
 		List<FormFile> files = fileUploadForm.getUpload();
@@ -39,8 +37,6 @@ public class RecvFileAction extends Action {
 			filePath = filePath +"/CompanyToClient";
 		}
 
-		System.out.println(filePath);
-
 		File folder = new File(filePath);
 		if (!folder.exists()) {
 			folder.mkdir();
@@ -48,11 +44,11 @@ public class RecvFileAction extends Action {
 
 		for (int i = 0; i < files.size(); i++) {
 			FormFile file = files.get(i);
-//			System.out.println(i);
-//			System.out.println(file.getFileName());
-//			System.out.println(file.getContentType());
-//			System.out.println(file.getFileSize());
+			
+			if ( file.getFileSize() == 0 ) continue ;
+			
 			File newFile = new File(filePath, file.getFileName());
+
 			if (newFile.exists()) {
 				DateTimeFormatter DTF = DateTimeFormatter.ofPattern("MM-dd_HHmmss");
 		        LocalDateTime dt = LocalDateTime.now();

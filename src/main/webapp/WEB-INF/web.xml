@@ -15,7 +15,7 @@
 	"http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-	<display-name>Struts Blank Application</display-name>
+	<display-name>Web FTP for file exchange between vendor and client</display-name>
 
 	<!-- Change the Character Encoding -->
 	<filter>
@@ -29,6 +29,7 @@
 	
 	<!-- Standard Action Servlet Configuration -->
 	<servlet>
+	
 		<servlet-name>action</servlet-name>
 		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
 		<init-param>
@@ -36,6 +37,7 @@
 			<param-value>/WEB-INF/struts-config.xml</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>
+		
 	</servlet>
 
 
@@ -46,7 +48,7 @@
 	</servlet-mapping>
 
 	<session-config>
-		<session-timeout>10</session-timeout>
+		<session-timeout>60</session-timeout>
 	</session-config>
 
 

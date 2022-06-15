@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
@@ -28,8 +29,9 @@ public class DownloadFileAction extends Action{
 		String fName = request.getParameter("file");
 		String dir = request.getParameter("dir");
         response.setContentType("application/octet-stream");
-        response.setHeader("Content-Disposition","attachment;filename="+fName);
+        response.setHeader("Content-Disposition","attachment;filename="+URLEncoder.encode(fName,"UTF-8"));
 
+        int len = 0 ;
         try
     	{
         	//Get it from file system
@@ -41,9 +43,15 @@ public class DownloadFileAction extends Action{
 
         	byte[] outputByte = new byte[4096];
 
-        	while(in.read(outputByte, 0, 4096) != -1)
+
+        	len = in.read(outputByte, 0, 4096);
+        	while( len != -1)
         	{
-        		out.write(outputByte, 0, 4096);
+        		if ( len == 4096 )
+        				out.write(outputByte, 0 , 4096);
+					else
+						out.write(outputByte, 0, len);
+            	len = in.read(outputByte, 0, 4096);
         	}
         	in.close();
         	out.flush();
