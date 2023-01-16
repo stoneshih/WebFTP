@@ -1,8 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div align="center" style="margin:10px;">
-	<span style="font-weight: bold; font-size: 2.5em;">廠商與客戶之間檔案傳遞 Web
-		FTP </span>
+	<span style="font-weight: bold; font-size: 2.5em;">合併PDF檔 </span>
 	<%
 	String user = (String) session.getAttribute("user");
 	if (user.length() == 0)

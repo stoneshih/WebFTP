@@ -15,7 +15,7 @@
 	"http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-	<display-name>Web FTP for file exchange between vendor and client</display-name>
+	<display-name> PDF Merge </display-name>
 
 	<!-- Change the Character Encoding -->
 	<filter>

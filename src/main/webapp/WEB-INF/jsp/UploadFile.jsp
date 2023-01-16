@@ -8,11 +8,12 @@
 	String company = (String) session.getAttribute("company");
 	String toCompany = request.getParameter("toCompany");
 	String title = "";
-	if (toCompany != null && toCompany.equals("yes")) {
-		title = "傳檔方向：從 " + client + " 到 " + company;
-	} else if (toCompany != null && toCompany.equals("no")) {
-		title = "傳檔方向：從 " + company + " 到 " + client;
-	}
+// 	if (toCompany != null && toCompany.equals("yes")) {
+// 		title = "傳檔方向：從 " + client + " 到 " + company;
+// 	} else if (toCompany != null && toCompany.equals("no")) {
+// 		title = "傳檔方向：從 " + company + " 到 " + client;
+// 	}
+	title="上傳想要合併的PDF檔";
 	out.write("<b style='font-size:2em;font-weight:bold;'>" + title + "</b><br/><br/>");
 	%>
 	<p style='font-size:1.5em;font-weight:normal;'>選擇一個或多個檔案之後，按"確定"按鈕，開始上傳檔案到伺服器。上傳成功之後，會顯示"檔案上傳成功"。

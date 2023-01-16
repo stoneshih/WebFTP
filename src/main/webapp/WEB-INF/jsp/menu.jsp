@@ -20,24 +20,7 @@ if (session.getAttribute("login") == (Boolean) true) {
 
 	<a href="Link.do?method=Home" style="font-size: 1.5em;">首頁<br />
 	</a> </br>
-	<fieldset
-		style="font-size: 1em; width: 300px; border: 3px #fefefe groove; padding: 10px;">
-		<legend>
-			從<%=(String) session.getAttribute("company")%>
-			傳給
-			<%=(String) session.getAttribute("proj")%>
-			的檔案
-		</legend>
-		<span style="font-size:1.5em;">
-		<a href="Link.do?method=ListFile&toCompany=no">檢視已經上傳檔案<br />
-		</a><br />
-		<%=dLinkPre_1%>
-		檔案上傳<br />
-		<%=dLinkSuf_1%><br /> <a
-			href="Link.do?method=ListFileToDownload&toCompany=no">檔案下載<br />
-		</a>
-		</span>
-	</fieldset>
+	
 	<br />
 
 	<fieldset
@@ -49,12 +32,14 @@ if (session.getAttribute("login") == (Boolean) true) {
 			的檔案
 		</legend>
 		<span style="font-size:1.5em;">
-		<a href="Link.do?method=ListFile&toCompany=yes">檢視已經上傳檔案<br />
+		<a href="Link.do?method=ListFile&toCompany=yes">下載已合併檔案<br />
+		</a><br />
+		<a href="Link.do?method=ListFile&toCompany=yes">檢視預定合併檔案<br />
 		</a><br />
 		<%=dLinkPre_2%>
-		檔案上傳<br />
+		上傳欲合併檔案<br />
 		<%=dLinkSuf_2%><br /> <a
-			href="Link.do?method=ListFileToDownload&toCompany=yes">檔案下載<br />
+			href="Link.do?method=ListFileToDownload&toCompany=yes">合併檔案<br />
 		</a>
 		</span>
 	</fieldset>
