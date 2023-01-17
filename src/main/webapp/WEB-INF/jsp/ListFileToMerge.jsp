@@ -19,25 +19,12 @@ td, th {
 	String client = (String) session.getAttribute("clientName");
 	String company = (String) session.getAttribute("company");
 	String toCompany = request.getParameter("toCompany");
-	String title;
-	String dir = (String) request.getSession().getAttribute("dir");
-	String dir_1;
-	//System.out.println("dir="+dir);
-	if (toCompany != null && toCompany.equals("yes")) {
+	String title = "xxx";
+	String dir_temp = (String) request.getSession().getAttribute("dir_temp");
 
-		path = Paths.get(dir + "/ClientToCompany");
-		dir_1 = "ClientToCompany";
-		title = "從 " + client + " 傳給 " + company + " 的檔案";
-	} else if (toCompany != null && toCompany.equals("no")) {
-		path = Paths.get((String) request.getSession().getAttribute("dir") + "/CompanyToClient");
-		dir_1 = "CompanyToClient";
-		title = "從 " + company + " 傳給 " + client + " 的檔案";
-	} else {
-		out.print("<p style='color:red;'>Error: Can't decide 'toCompany' or not. Stop listing!</p>");
-		return;
-	}
+		path = Paths.get(dir_temp);
 
-	out.write("<p style='font-size:2em;font-weight:bold;'>" + title + "</p>");
+	//out.write("<p style='font-size:2em;font-weight:bold;'>" + title + "</p>");
 	%>
 	<p style='font-size: 1.5em; font-weight: normal;'>目前檔案列表，點選進行下載。</p>
 	<table style="border: 1px solid;">
@@ -67,7 +54,7 @@ td, th {
 						String mTime = mtimeTmp.replaceAll("\\.[0-9]+$", ""); // Cut down the trailing digits after "."
 						String str = String.format(
 								"<tr><td><a style='font-size:1.3em;font-weight:normal;' href='%s/DownloadFile.do?file=%s&dir=%s'>%-30s</td><td>%-15d bytes</td><td>%-15s</a></td></tr>",
-								ctxtPath, fName, dir_1, fName, Files.size(p), mTime);
+								ctxtPath, fName, dir_temp, fName, Files.size(p), mTime);
 						out1.write(str);
 					}
 				} catch (Exception e) {

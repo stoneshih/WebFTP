@@ -29,13 +29,8 @@ public class RecvFileAction extends Action {
 
 		List<FormFile> files = fileUploadForm.getUpload();
 
-		String filePath = (String) request.getSession().getAttribute("dir");
+		String filePath = (String) request.getSession().getAttribute("dir_temp");
 		String toCompany				=	((FileUploadForm) form).getToCompany();
-		if (toCompany.equals("yes")) {
-			filePath = filePath +"/ClientToCompany";
-		} else if (toCompany.equals("no") ) {
-			filePath = filePath +"/CompanyToClient";
-		}
 
 		File folder = new File(filePath);
 		if (!folder.exists()) {

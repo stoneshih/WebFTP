@@ -19,10 +19,10 @@ public class LinkAction extends DispatchAction {
 		}
 	}
 
-	public ActionForward ListFileToDownload(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward ListToMerge(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		if (request.getSession().getAttribute("login") == (Boolean) true) {
-			return mapping.findForward("ListFileToDownload");
+			return mapping.findForward("Note");
 		} else {
 			return mapping.findForward("Login");
 		}
@@ -30,16 +30,9 @@ public class LinkAction extends DispatchAction {
 
 	public ActionForward UploadFile(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String toCompany	=	request.getParameter("toCompany");
-		String client	=	(String) request.getSession().getAttribute("client");
+		
 		if (request.getSession().getAttribute("login") == (Boolean) true) {
-			if ( toCompany.equals("no") && ! client.equals("yes")) {
-				return mapping.findForward("UploadFile");
-			} else if ( toCompany.equals("yes") && client.equals("yes")) {
-				return mapping.findForward("UploadFile");
-			} else {
-				return mapping.findForward("NotAllowUpload");
-			}
+			return mapping.findForward("UploadFile");
 		} else {
 			return mapping.findForward("Login");
 		}

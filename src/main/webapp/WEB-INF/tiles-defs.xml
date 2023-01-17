@@ -51,9 +51,9 @@
 		<put name="body" value="/WEB-INF/jsp/ListFile.jsp" />
 	</definition>
 
-	<definition name="ListFileToDownload" extends="baseLayout">
-		<put name="title" value="List File(s) to Download" />
-		<put name="body" value="/WEB-INF/jsp/ListFileToDownload.jsp" />
+	<definition name="ListToMerge" extends="baseLayout">
+		<put name="title" value="List File(s) to MERGE" />
+		<put name="body" value="/WEB-INF/jsp/ListToMerge.jsp" />
 	</definition>
 
 
@@ -64,7 +64,7 @@
 
 	<definition name="Note" extends="baseLayout">
 		<put name="title" value="Note Only" />
-		<put name="body" value="/WEB-INF/jsp/note.jsp" />
+		<put name="body" value="/WEB-INF/jsp/ListToMerge.jsp" />
 	</definition>
 
 	<definition name="UploadSecceed" extends="baseLayout">

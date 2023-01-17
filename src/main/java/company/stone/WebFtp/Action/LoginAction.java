@@ -13,11 +13,17 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import company.stone.WebFtp.Action.Form.LoginForm;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;  
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 public class LoginAction extends Action {
 
 	private String	company = "micro-ip";
+	
 	
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -30,41 +36,31 @@ public class LoginAction extends Action {
 
         String up 		= realm.getProperty(u+".password");
         String dir 		;
-        String client 	= realm.getProperty(u+".client");
-/*
- *  Sample setting for  "realm.properties"
- *
- *	esun.password=island123
- *	esun.directory=D:/temp1/esun
- *	esun.client=yes
- *	esunIsland.password=island123
- *	esunIsland.client=esun
- *
- *  Note: "esunIsland" is the counterpart of client "esun"
- *
- */
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
+    	LocalDateTime now = LocalDateTime.now();
+    	String	dtstamp = dtf.format(now);
+
 		request.getSession().setAttribute("company", company );
-        if ( up != null && up.equals(p)) {
-        	if ( u.endsWith(company) && ! u.equals(company)) { // company Account
-        		request.getSession().setAttribute("login", true);
-        		String	clientName = u.replaceAll("_"+company, "");
-        		request.getSession().setAttribute("clientName", clientName );
-        		dir 		= realm.getProperty(clientName+".directory");
-        		request.getSession().setAttribute("client", "no");
-        		request.getSession().setAttribute("dir", dir );
-        		request.getSession().setAttribute("user", u );
-        		request.getSession().setAttribute("proj",  clientName );
-        	} else if ( client.equals("yes")) { // Client Account
-        		request.getSession().setAttribute("login", true);
-        		request.getSession().setAttribute("client", "yes");
-        		request.getSession().setAttribute("clientName", u);
-        		dir 		= realm.getProperty(u+".directory");
-        		request.getSession().setAttribute("dir", dir );
-        		request.getSession().setAttribute("user", u );
-        		request.getSession().setAttribute("proj", u );
-        	} else {
+        if ( up != null && up.equals(p)) {      	
+    		request.getSession().setAttribute("login", true);
+    		request.getSession().setAttribute("user", u);
+
+    		dir	= realm.getProperty(u+".directory");
+    		request.getSession().setAttribute("dir", dir );
+    		/*
+    		 * Create temporary working directory
+    		 */
+    		String tmpDir;
+    		tmpDir = dir+"/"+dtstamp ;
+    		try {
+    			Files.createDirectories(Paths.get(tmpDir));
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    			request.getSession().setAttribute("login", false);
                 return mapping.findForward("failure");
-        	}
+    		}
+    		request.getSession().setAttribute("dir_temp", tmpDir );
             return mapping.findForward("success");
         } else {
         	request.getSession().setAttribute("login", false);
