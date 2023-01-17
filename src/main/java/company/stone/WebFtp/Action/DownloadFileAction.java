@@ -37,7 +37,7 @@ public class DownloadFileAction extends Action{
         	//Get it from file system
         	String path = (String) request.getSession().getAttribute("dir");
         	FileInputStream in =
-        		new FileInputStream(new File(path + "/" + dir +"/" +fName));
+        		new FileInputStream(new File(dir +"/" +fName));
 
         	ServletOutputStream out = response.getOutputStream();
 

@@ -22,9 +22,9 @@ if (session.getAttribute("login") == (Boolean) true) {
 		<legend> 依序執行合併PDF檔 </legend>
 		<span style="font-size: 1.5em;"> 
 			<a href="Link.do?method=UploadFile">1. 上傳欲合併檔案 </a><br/><br/>
-			<a href="Link.do?method=ListToMerge">2. 檢視預定合併檔案</a><br/><br/>
+			<a href="Link.do?method=ListFileToMerge">2. 檢視預定合併檔案</a><br/><br/>
 			<a href="Link.do?method=MergeFile">3. 合併檔案<br/><br/>
-			<a href="Link.do?method=MergeFile">4. 下載已合併檔案</a><br/><br/>
+			<a href="Link.do?method=ListFileToDownloadMerge">4. 下載已合併檔案</a><br/><br/>
 		</a>
 		</span>
 	</fieldset>

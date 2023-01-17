@@ -6,5 +6,6 @@
 </div>
 <%
 session.setAttribute("login", false);
+session.invalidate();
 %>
 

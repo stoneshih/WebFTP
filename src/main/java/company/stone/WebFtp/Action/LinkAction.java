@@ -19,10 +19,10 @@ public class LinkAction extends DispatchAction {
 		}
 	}
 
-	public ActionForward ListToMerge(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward ListFileToMerge(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		if (request.getSession().getAttribute("login") == (Boolean) true) {
-			return mapping.findForward("Note");
+			return mapping.findForward("ListFileToMerge");
 		} else {
 			return mapping.findForward("Login");
 		}
@@ -46,7 +46,25 @@ public class LinkAction extends DispatchAction {
 			return mapping.findForward("Login");
 		}
 	}
+	
+	public ActionForward MergeFile(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		if (request.getSession().getAttribute("login") == (Boolean) true) {
+			return mapping.findForward("MergeFile");
+		} else {
+			return mapping.findForward("Login");
+		}
+	}
 
+	public ActionForward ListFileToDownloadMerge(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		if (request.getSession().getAttribute("login") == (Boolean) true) {
+			return mapping.findForward("ListFileToDownloadMerge");
+		} else {
+			return mapping.findForward("Login");
+		}
+	}
+	
 	public ActionForward Home(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		if (request.getSession().getAttribute("login") == (Boolean) true) {

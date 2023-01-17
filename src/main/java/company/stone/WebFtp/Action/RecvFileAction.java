@@ -30,19 +30,23 @@ public class RecvFileAction extends Action {
 		List<FormFile> files = fileUploadForm.getUpload();
 
 		String filePath = (String) request.getSession().getAttribute("dir_temp");
-		String toCompany				=	((FileUploadForm) form).getToCompany();
 
 		File folder = new File(filePath);
 		if (!folder.exists()) {
 			folder.mkdir();
 		}
+		int uploadCount = (int )request.getSession().getAttribute("uploadCount");
+		System.out.println("session uploadCount="+uploadCount);
 
+		int fileCount = 0;
 		for (int i = 0; i < files.size(); i++) {
 			FormFile file = files.get(i);
 			
 			if ( file.getFileSize() == 0 ) continue ;
-			
-			File newFile = new File(filePath, file.getFileName());
+			int seq = fileCount + uploadCount ;
+			System.out.println("loop uploadCount="+uploadCount);
+			System.out.println("seq="+seq);
+			File newFile = new File(filePath, "seq-"+seq+"-"+file.getFileName());
 
 			if (newFile.exists()) {
 				DateTimeFormatter DTF = DateTimeFormatter.ofPattern("MM-dd_HHmmss");
@@ -60,9 +64,14 @@ public class RecvFileAction extends Action {
 				fos.write(file.getFileData());
 				fos.flush();
 				fos.close();
+				fileCount ++;
 			}
 		}
+		request.getSession().setAttribute("uploadCount", uploadCount);
+		uploadCount =  uploadCount + fileCount ;
+		System.out.println("req end uploadCount="+uploadCount);
 
+		request.getSession().setAttribute("uploadCount", uploadCount);
         return mapping.findForward("success");
 
 	 }

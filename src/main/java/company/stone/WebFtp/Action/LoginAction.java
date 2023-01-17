@@ -50,10 +50,12 @@ public class LoginAction extends Action {
     		/*
     		 * Create temporary working directory
     		 */
-    		String tmpDir;
+    		String tmpDir, tmpDirMerge;
     		tmpDir = dir+"/"+dtstamp ;
+    		tmpDirMerge = dir+"/"+dtstamp+"Merge" ;
     		try {
     			Files.createDirectories(Paths.get(tmpDir));
+    			Files.createDirectories(Paths.get(tmpDirMerge));
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
@@ -61,6 +63,9 @@ public class LoginAction extends Action {
                 return mapping.findForward("failure");
     		}
     		request.getSession().setAttribute("dir_temp", tmpDir );
+    		request.getSession().setAttribute("dir_temp_merge", tmpDirMerge );
+    		request.getSession().setAttribute("uploadCount", 0);
+
             return mapping.findForward("success");
         } else {
         	request.getSession().setAttribute("login", false);

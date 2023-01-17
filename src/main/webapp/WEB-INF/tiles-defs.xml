@@ -61,10 +61,25 @@
 		<put name="title" value="Upload File" />
 		<put name="body" value="/WEB-INF/jsp//UploadFile.jsp" />
 	</definition>
-
+	
 	<definition name="Note" extends="baseLayout">
 		<put name="title" value="Note Only" />
-		<put name="body" value="/WEB-INF/jsp/ListToMerge.jsp" />
+		<put name="body" value="/WEB-INF/jsp/note.jsp" />
+	</definition>
+	
+	<definition name="ListFileToMerge" extends="baseLayout">
+		<put name="title" value="List PDF fiels to be merged." />
+		<put name="body" value="/WEB-INF/jsp/ListFileToMerge.jsp" />
+	</definition>
+	
+	<definition name="MergeFile" extends="baseLayout">
+		<put name="title" value="Merge PDF files." />
+		<put name="body" value="/WEB-INF/jsp/MergeFile.jsp"/>
+	</definition>
+	
+	<definition name="ListFileToDownloadMerge" extends="baseLayout">
+		<put name="title" value="Merge PDF files." />
+		<put name="body" value="/WEB-INF/jsp/ListFileToDownloadMerge.jsp"/>
 	</definition>
 
 	<definition name="UploadSecceed" extends="baseLayout">

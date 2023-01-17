@@ -14,7 +14,7 @@
 		<%--         <html:submit value="Enter" /> --%>
 		<%--     </html:form> --%>
 
-		<form name="loginForm" method="post" action="/WebFTP/Login.do">
+		<form name="loginForm" method="post" action="/WebMergePDF/Login.do">
 		<table style="border:0px solid;padding:100px;font-size:1.5em">
 		<tr><td style='padding: 10 10 10 10;'>
 			使用者名稱(Username) :</td>
